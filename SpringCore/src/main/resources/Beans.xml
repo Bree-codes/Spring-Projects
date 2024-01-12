@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="person" class="com.bree.springproj.springcore.DedanKimathi.Person" >
+        <property name="FName" value="Brenda" />
+        <property name="sName" value="Muiru" />
+        <property name="id" value="41393249" />
+    </bean>
+
+    <bean id="school" class="com.bree.springproj.springcore.DedanKimathi.School" >
+        <property name="student" ref="student" />
+        <property name="teacher" ref="teacher" />
+        <property name="worker" ref="worker"/>
+
+    </bean>
+
+    <bean id="student" class="com.bree.springproj.springcore.DedanKimathi.Student" >
+        <property name="id" value="75849" />
+        <property name="FName" value="Steve" />
+        <property name="sName" value="Mirowe" />
+        <property name="course" value="CompScience" />
+        <property name="regNo" value="C026-01-0921/2021"/>
+    </bean>
+
+    <bean id="teacher" class="com.bree.springproj.springcore.DedanKimathi.Teacher">
+        <property name="sName" value="Kagiri" />
+        <property name="id" value="65478e9"/>
+        <property name="FName" value="Michael"/>
+        <property name="salary" value="67000"/>
+        <property name="unit" value="Database"/>
+
+    </bean>
+
+    <bean id="worker" class="com.bree.springproj.springcore.DedanKimathi.Worker">
+
+        <property name="salary" value="30000"/>
+        <property name="FName" value="Bob"/>
+        <property name="id" value="5748930"/>
+        <property name="sName" value="Okinyi"/>
+    </bean>
+
+</beans>
