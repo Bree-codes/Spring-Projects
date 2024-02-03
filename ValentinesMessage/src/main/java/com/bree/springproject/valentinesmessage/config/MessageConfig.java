@@ -1,5 +1,6 @@
 package com.bree.springproject.valentinesmessage.config;
 
+import freemarker.template.TemplateExceptionHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
