@@ -7,13 +7,14 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
+import com.bree.springproject.sendingsmsaandotp.dto.OtpResponse;
+import com.bree.springproject.sendingsmsaandotp.dto.OtpStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bree.springproject.sendingsmsaandotp.configuration.TwilioConfig;
 import com.bree.springproject.sendingsmsaandotp.dto.OtpRequest;
-import com.bree.springproject.sendingsmsaandotp.dto.OtpResponseDto;
-import com.bree.springproject.sendingsmsaandotp.dto.OtpStatus;
+import com.bree.springproject.sendingsmsaandotp.dto.OtpResponse;
 import com.bree.springproject.sendingsmsaandotp.dto.OtpValidationRequest;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
@@ -29,8 +30,8 @@ public class SmsService {
     Map<String, String> otpMap = new HashMap<>();
 
 
-    public OtpResponseDto sendSMS(OtpRequest otpRequest) {
-        OtpResponseDto otpResponseDto = null;
+    public OtpResponse sendSMS(OtpRequest otpRequest) {
+        OtpResponse otpResponseDto = null;
         try {
             PhoneNumber to = new PhoneNumber(otpRequest.getPhoneNumber());//to
             PhoneNumber from = new PhoneNumber(twilioConfig.getPhoneNumber()); // from
@@ -41,10 +42,10 @@ public class SmsService {
                             otpMessage)
                     .create();
             otpMap.put(otpRequest.getUsername(), otp);
-            otpResponseDto = new OtpResponseDto(OtpStatus.DELIVERED, otpMessage);
+            otpResponseDto = new OtpResponse(OtpStatus.DELIVERED, otpMessage);
         } catch (Exception e) {
             e.printStackTrace();
-            otpResponseDto = new OtpResponseDto(OtpStatus.FAILED, e.getMessage());
+            otpResponseDto = new OtpResponse(OtpStatus.FAILED, e.getMessage());
         }
         return otpResponseDto;
     }

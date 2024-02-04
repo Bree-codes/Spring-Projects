@@ -7,8 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class OtpResponse{
-    private OtpStatus status;
-    private String message;
-
+public class OtpValidationRequest {
+    private String username;
+    private String otpNumber;
 }

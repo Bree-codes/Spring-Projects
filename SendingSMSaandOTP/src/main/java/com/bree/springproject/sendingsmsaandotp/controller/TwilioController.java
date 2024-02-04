@@ -1,14 +1,18 @@
 package com.bree.springproject.sendingsmsaandotp.controller;
 
+import com.bree.springproject.sendingsmsaandotp.dto.OtpRequest;
+import com.bree.springproject.sendingsmsaandotp.dto.OtpResponse;
+import com.bree.springproject.sendingsmsaandotp.dto.OtpValidationRequest;
+import com.bree.springproject.sendingsmsaandotp.service.SmsService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/otp")
 @Slf4j
 public class TwilioController {
+
     @Autowired
     private SmsService smsService;
 
@@ -18,7 +22,7 @@ public class TwilioController {
     }
 
     @PostMapping("/send-otp")
-    public OtpResponseDto sendOtp(@RequestBody OtpRequest otpRequest) {
+    public OtpResponse sendOtp(@RequestBody OtpRequest otpRequest) {
         log.info("inside sendOtp :: "+otpRequest.getUsername());
         return smsService.sendSMS(otpRequest);
     }
