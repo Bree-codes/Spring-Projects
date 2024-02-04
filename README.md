@@ -1,3 +1,3 @@
 # Spring-Projects
-Spring boot practice codes..
+Spring boot practice codes.
 
