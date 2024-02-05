@@ -31,7 +31,7 @@ public class SmsService {
 
 
     public OtpResponse sendSMS(OtpRequest otpRequest) {
-        OtpResponse otpResponseDto = null;
+        OtpResponse otpResponse= null;
         try {
             PhoneNumber to = new PhoneNumber(otpRequest.getPhoneNumber());//to
             PhoneNumber from = new PhoneNumber(twilioConfig.getPhoneNumber()); // from
@@ -42,12 +42,12 @@ public class SmsService {
                             otpMessage)
                     .create();
             otpMap.put(otpRequest.getUsername(), otp);
-            otpResponseDto = new OtpResponse(OtpStatus.DELIVERED, otpMessage);
+            otpResponse = new OtpResponse(OtpStatus.DELIVERED, otpMessage);
         } catch (Exception e) {
             e.printStackTrace();
-            otpResponseDto = new OtpResponse(OtpStatus.FAILED, e.getMessage());
+            otpResponse = new OtpResponse(OtpStatus.FAILED, e.getMessage());
         }
-        return otpResponseDto;
+        return otpResponse;
     }
 
     public String validateOtp(OtpValidationRequest otpValidationRequest) {
