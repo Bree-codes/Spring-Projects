@@ -38,8 +38,7 @@ public class StudentController {
         Student std = service.get(id);
         mav.addObject("student", std);
         return mav;
-
-    }
+}
     @RequestMapping("/delete/{id}")
     public String deletestudent(@PathVariable(name = "id") int id) {
         service.delete(id);
