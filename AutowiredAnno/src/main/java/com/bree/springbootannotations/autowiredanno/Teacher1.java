@@ -4,11 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component("mwalimu")
-public class Teacher1 {
-
-   /* public String teach(){
-        
-
+public class Teacher1 
+   
     private Teacher2 teacher2;
 
     //constructor injection
