@@ -7,8 +7,7 @@ import org.springframework.stereotype.Component;
 public class Teacher1 {
 
    /* public String teach(){
-        return "My name is Steve \nI will be your maths teacher this sem.";
-    }*/
+        
 
     private Teacher2 teacher2;
 
